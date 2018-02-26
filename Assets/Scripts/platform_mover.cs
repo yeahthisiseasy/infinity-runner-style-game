@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class platform_mover : MonoBehaviour {
+public class platform_mover : MonoBehaviour
+{
 
-    public float speed;
+    Game_controler game_controler;
 
 	void Start ()
     {
-		
+        game_controler = FindObjectOfType<Game_controler>();
 	}
 	
 	void Update ()
     {
-        transform.Translate(Vector3.left * (speed * Time.deltaTime));
+        transform.Translate(Vector3.left * (game_controler.speed * Time.deltaTime));
 
         if (transform.localPosition.x <= -10.5)
         {
